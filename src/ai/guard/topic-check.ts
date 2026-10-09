@@ -51,10 +51,11 @@ const INJECTION_PATTERNS: RegExp[] = [
   /\byou are now\b|\bact as (an? )?(unrestricted|unfiltered|jailbroken)\b|\bdeveloper mode\b|\bjailbreak\b|\bDAN\b/i,
   /\bon_topic\b|"reason_code"/i,
   // Azerbaijani
-  /(əvvəlki|bütün|öncəki)\s+(təlimat|qayda|göstəriş)\w*\s+(unut|nəzərə alma|ignor)/i,
+  // \S*, not \w*: without the u flag \w skips ı, ə, ş, so "təlimatları unut" slipped through.
+  /(əvvəlki|bütün|öncəki)\s+(təlimat|qayda|göstəriş)\S*\s+(unut|nəzərə alma|ignor)/i,
   /sistem\s+(prompt|təlimat|göstəriş)\w*/i,
   // Turkish
-  /(önceki|tüm|yukarıdaki)\s+(talimat|kural|komut)\w*\s+(unut|yok say|görmezden gel)/i,
+  /(önceki|tüm|yukarıdaki)\s+(talimat|kural|komut)\S*\s+(unut|yok say|görmezden gel)/i,
   /sistem\s+(istem|komut|talimat)\w*/i,
 ];
 

@@ -17,7 +17,7 @@ npm run dev
 |---|---|
 | Data models / API routes | 73 Prisma models, 101 route handlers |
 | Roles | 5: super admin, tenant admin, teacher, jury, participant |
-| Unit and integration tests | 717 tests in 108 files (`npm test`); 42 of them need PostgreSQL and run in CI (`.github/workflows/ci.yml`) |
+| Unit and integration tests | 719 tests in 108 files (`npm test`); 42 of them need PostgreSQL and run in CI (`.github/workflows/ci.yml`) |
 | End-to-end tests | 8 Playwright specs (`e2e/`) |
 | Core-logic coverage | 87.6% lines, 69.0% branches (`npm run test:coverage`; thresholds in `vitest.config.ts`: 80% lines, 65% branches; our branch goal is 80%) |
 | AI Mentor evaluation | 20 cases in AZ/EN/TR (`npm run eval:mentor`, needs `ANTHROPIC_API_KEY`) |
