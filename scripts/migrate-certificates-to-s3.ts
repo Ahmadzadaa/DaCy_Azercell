@@ -62,8 +62,7 @@ async function migrateOne(
   try {
     bytes = await readFile(source);
   } catch {
-    // Expected for rows issued before an earlier deploy wiped the container,
-    // and for seeded rows that never had a document.
+    // Skip missing local files and seeded rows without a rendered document.
     console.warn(`  ⚠️  ${row.serialNumber}: local file missing (${source})`);
     counters.skippedMissingFile++;
     return;

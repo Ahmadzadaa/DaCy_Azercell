@@ -67,8 +67,7 @@ echo ""
 
 # Wait for a real page, not just an open port. After the cache is cleared the
 # server answers immediately but Turbopack is still writing its manifests, so
-# the first request comes back 500 — and the browser used to open straight
-# onto that error. Only a 2xx/3xx counts as ready.
+# the first request can fail. Only a 2xx/3xx counts as ready.
 ( for i in $(seq 1 90); do
     code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/az)
     if [ "$code" -ge 200 ] 2>/dev/null && [ "$code" -lt 400 ]; then

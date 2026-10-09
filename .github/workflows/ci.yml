@@ -86,8 +86,11 @@ jobs:
       - name: Generate PostgreSQL schema
         run: npm run db:schema:postgres
 
-      - name: Apply schema
-        run: npx prisma db push --schema=prisma/schema.postgres.prisma --skip-generate
+      - name: Apply migrations
+        run: npx prisma migrate deploy --schema=prisma/schema.postgres.prisma
+
+      - name: Check migration schema matches the models
+        run: npx prisma migrate diff --from-schema-datasource prisma/schema.postgres.prisma --to-schema-datamodel prisma/schema.postgres.prisma --exit-code
 
       - name: Generate Prisma client for PostgreSQL
         run: npx prisma generate --schema=prisma/schema.postgres.prisma

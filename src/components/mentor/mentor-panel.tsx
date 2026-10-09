@@ -213,7 +213,7 @@ export function MentorPanel({ simulationId }: { simulationId: string }) {
               </p>
               <p className="text-[12px] text-muted-foreground">{t("aiNotice")}</p>
             </div>
-            {/* Reserved for the avatar (voice phase). */}
+            {/* Avatar slot for voice support. */}
             <div data-slot="mentor-avatar" hidden={!VOICE_ENABLED} className="h-9 w-9" />
             <button type="button" onClick={() => setOpen(false)} aria-label={t("close")} className="rounded-full p-1.5 text-muted-foreground hover:bg-muted">
               <X className="h-4 w-4" aria-hidden="true" />
@@ -291,7 +291,7 @@ export function MentorPanel({ simulationId }: { simulationId: string }) {
                       </button>
                     </>
                   )}
-                  {/* Reserved for the microphone (voice phase). */}
+                  {/* Microphone slot for voice support. */}
                   <button type="button" hidden={!VOICE_ENABLED} disabled aria-label={t("mic")} className="rounded-xl p-2.5 text-muted-foreground">
                     <Mic className="h-5 w-5" aria-hidden="true" />
                   </button>

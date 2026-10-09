@@ -1,5 +1,5 @@
 -- Row Level Security policies for BizSim multi-tenant isolation
--- Applied after Prisma migration. Run as database superuser or migration role.
+-- Apply after schema creation. Run as database superuser or migration role.
 
 ALTER TABLE tenants ENABLE ROW LEVEL SECURITY;
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;

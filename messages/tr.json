@@ -86,7 +86,7 @@
     "showPassword": "Şifreyi göster",
     "hidePassword": "Şifreyi gizle",
     "trustEncryption": "256-bit şifreleme",
-    "trustCompliance": "KVKK/GDPR uyumlu",
+    "trustCompliance": "Gizlilik tercihleri",
     "trustEnterprise": "Enterprise SaaS",
     "allRightsReserved": "Tüm hakları saklıdır",
     "forgotPassword": "Şifrenizi mi unuttunuz?",
@@ -1773,7 +1773,6 @@
     "notListed": "Listede yok",
     "otherField": "Diğer",
     "consentHeading": "Onaylar",
-    "draftTranslation": "taslak çeviri",
     "opportunitiesQuestion": "İlerleyen süreçte, kurumların inovasyon ve problem çözme projelerinde yer alabileceğin uygun fırsatları seninle paylaşmamızı ister misin?",
     "opportunitiesYes": "Evet, paylaşabilirsiniz",
     "opportunitiesNo": "Hayır, istemiyorum",
@@ -1800,7 +1799,7 @@
     "showPassword": "Şifreyi göster",
     "hidePassword": "Şifreyi gizle",
     "readNotice": "Oku",
-    "secureNote": "Verilerin KVKK kapsamında korunur."
+    "secureNote": "Verilerinin kullanımına ilişkin tercihleri sen yaparsın."
   },
   "programSchedule": {
     "caption": "6 haftalık program takvimi",
@@ -2365,62 +2364,37 @@
     },
     "privacy": {
       "title": "Gizlilik politikası",
-      "updated": "Son güncelleme: 6 Eylül 2026",
-      "draftNotice": "TASLAK — bu belgenin metni hukuki incelemeden geçmemiştir ve bağlayıcı değildir.",
+      "updated": "Son güncelleme: 9 Ekim 2026",
       "sections": {
         "controller": {
-          "heading": "Veri sorumlusu",
-          "body": "Platformu kullanan kurum kendi katılımcılarının verileri için veri sorumlusu, BizSim ise veri işleyendir. Pazarlama sitesi üzerinden doğrudan bize gönderilen veriler için sorumlu BizSim'dir."
+          "heading": "DaCy platformu",
+          "body": "Bu sayfa DaCy platformunda bilgilerin kullanımını ve katılımcıların tercihlerini açıklar."
         },
         "dataCollected": {
-          "heading": "Toplanan veriler",
-          "body": "Hesap bilgileri (ad, e-posta, telefon, rol), akademik profil (üniversite, fakülte, bölüm, sınıf), kullanım olayları (ders tamamlama, sınav denemesi, giriş kaydı) ve yüklenen dosyalar (proje PDF'leri, avatar).\n\nDemo formu üzerinden: ad, şirket, e-posta, telefon, tahmini katılımcı sayısı ve mesaj."
+          "heading": "Toplanan bilgiler",
+          "body": "Hesap ve iletişim bilgileri, eğitim profili, program etkinlikleri ve değerlendirme sonuçları, gönderdiğiniz dosyalar ve destek talepleri."
         },
         "purposes": {
           "heading": "Kullanım amaçları",
-          "body": "Hizmetin sunulması, katılımcı ilerlemesinin izlenmesi, sertifikaların verilmesi ve doğrulanması, güvenlik olaylarının incelenmesi, faturalandırma ve destek."
-        },
-        "legalBasis": {
-          "heading": "Hukuki dayanak",
-          "body": "Sözleşmenin ifası (hizmetin sunulması), meşru menfaat (güvenlik ve kötüye kullanımın önlenmesi), yasal yükümlülük (muhasebe) ve açık rıza (pazarlama formu)."
+          "body": "Kayıt ve giriş, eğitim ve simülasyonlar, sonuçların gösterilmesi, rapor ve sertifikaların hazırlanması, ödeme ve destek işlemleri."
         },
         "sharing": {
-          "heading": "Üçüncü taraflarla paylaşım",
-          "body": "Veriler satılmaz. Yalnızca hizmetin çalışması için gerekli işleyenlerle paylaşılır: bulut altyapısı, e-posta gönderimi ve ödeme sağlayıcısı. Her biriyle veri işleme sözleşmesi yapılır."
-        },
-        "transfers": {
-          "heading": "Uluslararası aktarımlar",
-          "body": "Veri işleme temel olarak Avrupa bölgesindeki sunucularda yapılır. Bölge dışına aktarım olduğunda standart sözleşme maddeleri gibi hukuki mekanizmalar uygulanır."
-        },
-        "retention": {
-          "heading": "Saklama süresi",
-          "body": "Hesap bilgileri abonelik süresince ve sonrasında yasal olarak gereken süre boyunca saklanır. Verilen sertifikalar doğrulama amacıyla daha uzun tutulur. Demo formu verileri satış süreci bittikten sonra silinir."
-        },
-        "security": {
-          "heading": "Güvenlik önlemleri",
-          "body": "Şifreli bağlantı, parolaların hash'lenmesi, yönetici rolleri için zorunlu iki adımlı doğrulama, rol tabanlı yetkilendirme, veritabanı seviyesinde kurum izolasyonu ve denetim kaydı."
-        },
-        "rights": {
-          "heading": "Kişinin hakları",
-          "body": "Verilerinize erişim, düzeltme, silme, işlemenin kısıtlanması, taşınabilirlik ve itiraz hakkınız vardır. Başvuru için aşağıdaki iletişim bölümüne bakın.\n\nNot: katılımcısı olduğunuz kurumun verileri için başvuruyu önce ilgili kuruma yöneltmek gerekir."
+          "heading": "Erişim ve tercihleriniz",
+          "body": "Kurumun yetkili çalışanları rollerine uygun bilgileri görebilir. Psikolojik değerlendirme sonuçları üniversiteye ayrı izinle gösterilir. Çalışmaların platformu geliştirmek için kullanılması ve fırsat bildirimleri ayrı tercihlerdir. Etkin AI, ödeme ve dosya depolama hizmetleri, bir talebi yerine getirmek için gerekli bilgileri ilgili sağlayıcıya iletebilir."
         },
         "cookies": {
           "heading": "Çerezler",
-          "body": "Yalnızca hizmetin çalışması için gerekli çerezler kullanılır: oturum, dil seçimi ve arayüz teması. Reklam ve izleme çerezleri kullanılmaz."
-        },
-        "changes": {
-          "heading": "Politikadaki değişiklikler",
-          "body": "Bu belge güncellendiğinde yukarıdaki tarih değişir. Önemli değişiklikler kurum yöneticilerine e-postayla bildirilir."
+          "body": "Giriş oturumu ve dil tercihi için gerekli çerezler kullanılır."
         },
         "contact": {
           "heading": "İletişim",
-          "body": "Gizlilikle ilgili sorular ve veri başvuruları için iletişim sayfasındaki formu kullanın ve konuya «Gizlilik» yazın."
+          "body": "Bilgilerinize erişim, düzeltme veya silme talebi için iletişim formunu kullanın. Bir kurumun programına katılıyorsanız kurum yöneticisine de başvurabilirsiniz."
         }
       }
     },
     "terms": {
       "title": "Kullanım şartları",
-      "updated": "Son güncelleme: 6 Eylül 2026",
+      "updated": "Son güncelleme: 9 Ekim 2026",
       "draftNotice": "TASLAK — bu belgenin metni hukuki incelemeden geçmemiştir ve bağlayıcı değildir.",
       "sections": {
         "acceptance": {

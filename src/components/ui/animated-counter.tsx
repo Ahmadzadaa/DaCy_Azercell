@@ -15,10 +15,8 @@ interface AnimatedCounterProps {
 /**
  * A number that counts up once when it scrolls into view.
  *
- * Its resting state is the real value: it used to start at 0 and rely on
- * `requestAnimationFrame`, which does not run in a hidden tab, so a page
- * opened in the background showed a coin balance of 0. The count-up now only
- * runs when the document is visible, and otherwise the value is simply there.
+ * The resting state shows the real value. Animation runs only while the
+ * document is visible because requestAnimationFrame pauses in hidden tabs.
  */
 export function AnimatedCounter({
   value,

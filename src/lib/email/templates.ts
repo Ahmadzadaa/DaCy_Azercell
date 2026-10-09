@@ -5,9 +5,7 @@
  * purpose: these templates are rendered both from route handlers and from the
  * queue worker, and the worker has no request for next-intl to read a locale
  * from. Every template therefore takes the recipient's language explicitly and
- * falls back to the routing default when it is unknown — the emails used to be
- * Azerbaijani for everyone, which meant a Turkish technopark's admin received
- * their own credentials in a language they may not read.
+ * falls back to the routing default when it is unknown.
  */
 import { routing, type Locale } from "@/i18n/routing";
 

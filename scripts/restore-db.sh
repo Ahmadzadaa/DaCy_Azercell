@@ -27,6 +27,6 @@ echo "[restore] Restoring from ${BACKUP_FILE}..."
 gunzip -c "${BACKUP_FILE}" | psql "${DATABASE_URL}" --single-transaction --set ON_ERROR_STOP=on
 
 echo "[restore] Re-applying RLS policies..."
-psql "${DATABASE_URL}" -f prisma/migrations/rls/001_enable_rls.sql
+psql "${DATABASE_URL}" -f prisma/rls/001_enable_rls.sql
 
 echo "[restore] Done. Verify with: curl http://localhost:3000/api/health/ready"

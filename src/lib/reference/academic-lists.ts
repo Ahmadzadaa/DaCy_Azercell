@@ -32,7 +32,7 @@ export async function listDepartments(tenantId: string): Promise<DepartmentOptio
 
 /**
  * Checks that picked ids are visible to the tenant and returns their names,
- * so the legacy free-text fields stay filled for screens that read them.
+ * so the free-text display fields stay filled for screens that read them.
  */
 export async function resolveAcademicSelection(
   db: Prisma.TransactionClient,

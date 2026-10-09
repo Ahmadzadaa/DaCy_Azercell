@@ -1,10 +1,8 @@
 /**
  * Certificate domain errors.
  *
- * These used to carry no `statusCode`, so `apiErrorResponse` treated every one
- * of them as an unhandled 500 — a tenant that had simply switched a
- * certificate type off looked like a broken server. The `code` is what the
- * browser translates; the message text is for logs.
+ * statusCode selects the HTTP response; code selects the browser translation.
+ * The message text is for logs.
  */
 
 export class CertificateDisabledError extends Error {

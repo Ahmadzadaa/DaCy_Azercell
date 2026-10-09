@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { StorageAdapter } from "@/lib/storage/types";
 
 // An in-memory adapter stands in for the driver: this file is about the
-// certificate-specific layer (key layout, hashing, legacy paths), not about
+// certificate-specific layer (key layout, hashing, relative paths), not about
 // how bytes reach disk or S3.
 const objects = new Map<string, Uint8Array>();
 
@@ -54,12 +54,12 @@ describe("certificate key resolution", () => {
 
   // Rows written before object storage hold a path relative to the
   // certificates directory. They must keep opening until the migration runs.
-  it("prefixes a legacy relative path", () => {
+  it("prefixes a relative path", () => {
     expect(resolveCertificateKey("t1/c3.pdf")).toBe("certificates/t1/c3.pdf");
   });
 
   // path.join produced these on Windows, so they are in real databases.
-  it("normalises backslashes from legacy Windows rows", () => {
+  it("normalises backslashes from Windows paths", () => {
     expect(resolveCertificateKey("t1\\c3.pdf")).toBe("certificates/t1/c3.pdf");
   });
 });
@@ -89,7 +89,7 @@ describe("storing a certificate", () => {
     expect(new Uint8Array(await readCertificatePdf(key))).toEqual(BYTES);
   });
 
-  it("reads a legacy row through the same call", async () => {
+  it("reads a relative path through the same call", async () => {
     objects.set("certificates/t1/c3.pdf", BYTES);
 
     expect(new Uint8Array(await readCertificatePdf("t1/c3.pdf"))).toEqual(BYTES);

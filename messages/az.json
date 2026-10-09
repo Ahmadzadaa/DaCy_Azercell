@@ -86,7 +86,7 @@
     "showPassword": "Şifrəni göstər",
     "hidePassword": "Şifrəni gizlət",
     "trustEncryption": "256-bit şifrələmə",
-    "trustCompliance": "KVKK/GDPR uyğun",
+    "trustCompliance": "Məxfilik seçimləri",
     "trustEnterprise": "Enterprise SaaS",
     "allRightsReserved": "Bütün hüquqlar qorunur",
     "forgotPassword": "Şifrəni unutmusunuz?",
@@ -1773,7 +1773,6 @@
     "notListed": "Siyahıda yoxdur",
     "otherField": "Digər",
     "consentHeading": "Razılıqlar",
-    "draftTranslation": "qaralama tərcümə",
     "opportunitiesQuestion": "Gələcəkdə qurumların innovasiya və problem həlli layihələrində iştirak edə biləcəyin uyğun imkanları səninlə paylaşmağımızı istəyirsən?",
     "opportunitiesYes": "Bəli, paylaşa bilərsiniz",
     "opportunitiesNo": "Xeyr, istəmirəm",
@@ -1800,7 +1799,7 @@
     "showPassword": "Şifrəni göstər",
     "hidePassword": "Şifrəni gizlət",
     "readNotice": "Oxu",
-    "secureNote": "Məlumatların KVKK-ya uyğun qorunur."
+    "secureNote": "Məlumatların istifadəsi ilə bağlı seçimləri sən edirsən."
   },
   "programSchedule": {
     "caption": "6 həftəlik proqram təqvimi",
@@ -2365,62 +2364,37 @@
     },
     "privacy": {
       "title": "Məxfilik siyasəti",
-      "updated": "Son yenilənmə: 6 sentyabr 2026",
-      "draftNotice": "QARALAMA — bu sənədin mətni hüquqi baxışdan keçməyib və hüquqi qüvvəyə malik deyil.",
+      "updated": "Son yenilənmə: 9 oktyabr 2026",
       "sections": {
         "controller": {
-          "heading": "Data nəzarətçisi",
-          "body": "Platformanı istifadə edən təşkilat öz iştirakçılarının məlumatları üçün data nəzarətçisi, BizSim isə data emalçısı kimi çıxış edir. Marketinq saytı vasitəsilə birbaşa bizə göndərilən məlumatlar üçün nəzarətçi BizSim-dir."
+          "heading": "DaCy platforması",
+          "body": "Bu səhifə DaCy platformasında məlumatların istifadəsini və iştirakçının seçimlərini izah edir."
         },
         "dataCollected": {
           "heading": "Toplanan məlumatlar",
-          "body": "Hesab məlumatları (ad, e-poçt, telefon, rol), akademik profil (universitet, fakültə, ixtisas, kurs), istifadə hadisələri (dərs tamamlanması, imtahan cəhdi, giriş jurnalı) və yüklənən fayllar (layihə PDF-ləri, avatar).\n\nDemo formu vasitəsilə: ad, şirkət, e-poçt, telefon, təxmini iştirakçı sayı və mesaj."
+          "body": "Hesab və əlaqə məlumatları, təhsil profili, proqramdakı fəaliyyət və qiymətləndirmə nəticələri, göndərdiyiniz fayllar və dəstək müraciətləri."
         },
         "purposes": {
           "heading": "İstifadə məqsədləri",
-          "body": "Xidmətin göstərilməsi, iştirakçı irəliləyişinin izlənməsi, sertifikatların verilməsi və doğrulanması, təhlükəsizlik hadisələrinin araşdırılması, fakturalandırma və dəstək."
-        },
-        "legalBasis": {
-          "heading": "Hüquqi əsas",
-          "body": "Müqavilənin icrası (xidmətin göstərilməsi), qanuni maraq (təhlükəsizlik və sui-istifadənin qarşısının alınması), qanuni öhdəlik (mühasibat) və razılıq (marketinq formu)."
+          "body": "Qeydiyyat və giriş, təlim və simulyasiyalar, nəticələrin göstərilməsi, hesabat və sertifikatların hazırlanması, ödəniş və dəstək əməliyyatları."
         },
         "sharing": {
-          "heading": "Üçüncü tərəflərlə paylaşım",
-          "body": "Məlumatlar satılmır. Yalnız xidmətin işləməsi üçün zəruri olan emalçılarla paylaşılır: bulud infrastrukturu, e-poçt göndərilməsi və ödəniş provayderi. Hər biri ilə data emalı müqaviləsi bağlanır."
-        },
-        "transfers": {
-          "heading": "Beynəlxalq ötürmələr",
-          "body": "Data emalı əsasən Avropa regionundakı serverlərdə aparılır. Region xaricinə ötürmə baş verdikdə standart müqavilə şərtləri kimi hüquqi mexanizmlər tətbiq olunur."
-        },
-        "retention": {
-          "heading": "Saxlanma müddəti",
-          "body": "Hesab məlumatları abunəlik müddətində və ondan sonra qanunla tələb olunan müddətdə saxlanılır. Verilmiş sertifikatlar doğrulama məqsədilə daha uzun saxlanılır. Demo formu məlumatları satış prosesi bitdikdən sonra silinir."
-        },
-        "security": {
-          "heading": "Təhlükəsizlik tədbirləri",
-          "body": "Şifrələnmiş bağlantı, şifrələrin hash-lənməsi, admin rolları üçün məcburi iki mərhələli doğrulama, rol əsaslı icazə sistemi, verilənlər bazası səviyyəsində təşkilat izolyasiyası və audit jurnalı."
-        },
-        "rights": {
-          "heading": "Şəxsin hüquqları",
-          "body": "Məlumatlarınıza çıxış, düzəliş, silinmə, emalın məhdudlaşdırılması, köçürülmə və etiraz hüququnuz var. Müraciət üçün aşağıdakı əlaqə bölməsinə baxın.\n\nQeyd: iştirakçısı olduğunuz təşkilatın datası üçün müraciəti əvvəlcə həmin təşkilata ünvanlamaq lazımdır."
+          "heading": "Məlumatlara giriş və seçimlər",
+          "body": "Təşkilatın səlahiyyətli əməkdaşları rollarına uyğun məlumatları görə bilər. Psixoloji qiymətləndirmə nəticələri universitetə ayrıca razılıqla göstərilir. Təlim işlərinin platformanı təkmilləşdirmək üçün istifadəsi və fürsət bildirişləri ayrıca seçimlərdir. Aktiv AI, ödəniş və fayl saxlama xidmətləri sorğunu yerinə yetirmək üçün lazımi məlumatları müvafiq provayderə ötürə bilər."
         },
         "cookies": {
           "heading": "Kukilər",
-          "body": "Yalnız xidmətin işləməsi üçün zəruri kukilər istifadə olunur: sessiya, dil seçimi və interfeys mövzusu. Reklam və izləmə kukiləri istifadə edilmir."
-        },
-        "changes": {
-          "heading": "Siyasətdə dəyişikliklər",
-          "body": "Bu sənəd yeniləndikdə yuxarıdakı tarix dəyişir. Əhəmiyyətli dəyişikliklər barədə təşkilat adminlərinə e-poçtla məlumat verilir."
+          "body": "Giriş sessiyası və dil seçimi üçün zəruri kukilər istifadə olunur."
         },
         "contact": {
           "heading": "Əlaqə",
-          "body": "Məxfiliklə bağlı suallar və data müraciətləri üçün əlaqə səhifəsindəki formdan istifadə edin və mövzuda «Məxfilik» qeyd edin."
+          "body": "Məlumatlarınıza baxmaq, düzəliş və ya silinmə barədə müraciət etmək üçün əlaqə formasından istifadə edin. Təşkilat proqramında iştirak edirsinizsə, onun administratoruna da müraciət edə bilərsiniz."
         }
       }
     },
     "terms": {
       "title": "İstifadə şərtləri",
-      "updated": "Son yenilənmə: 6 sentyabr 2026",
+      "updated": "Son yenilənmə: 9 oktyabr 2026",
       "draftNotice": "QARALAMA — bu sənədin mətni hüquqi baxışdan keçməyib və hüquqi qüvvəyə malik deyil.",
       "sections": {
         "acceptance": {

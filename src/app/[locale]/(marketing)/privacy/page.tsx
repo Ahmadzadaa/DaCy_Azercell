@@ -13,23 +13,13 @@ export async function generateMetadata({
   return buildMarketingMetadata(locale, "/privacy");
 }
 
-/**
- * Skeleton only. These headings are the ones a KVKK/GDPR review expects to
- * find; every body is a placeholder until counsel supplies the wording — see
- * docs/landing-content-brief.md.
- */
+/** Practical summary of the platform's data use and participant choices. */
 const SECTION_KEYS = [
   "controller",
   "dataCollected",
   "purposes",
-  "legalBasis",
   "sharing",
-  "transfers",
-  "retention",
-  "security",
-  "rights",
   "cookies",
-  "changes",
   "contact",
 ] as const;
 
@@ -47,7 +37,6 @@ export default async function PrivacyPage({
       <LegalDocument
         title={t("title")}
         updatedLabel={t("updated")}
-        draftNotice={t("draftNotice")}
         sections={SECTION_KEYS.map((key) => ({
           id: key,
           heading: t(`sections.${key}.heading`),

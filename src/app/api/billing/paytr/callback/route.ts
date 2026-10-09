@@ -175,7 +175,7 @@ export async function POST(request: Request): Promise<Response> {
         durationMs: Date.now() - startedAt,
       });
     } catch (billingError) {
-      // Invoices are the current billing path; the legacy Payment flow still
+      // Invoices handle billing; the direct Payment flow also
       // exists for orders placed before it, so fall back rather than fail.
       const unknownOrder =
         billingError instanceof Error &&

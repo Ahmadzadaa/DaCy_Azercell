@@ -180,7 +180,7 @@ describe("validateEnv — PayTR mode", () => {
     );
   });
 
-  it("does not accept the pre-split credentials as live ones", () => {
+  it("does not accept the unprefixed credentials as live ones", () => {
     const env = {
       ...validProdEnv,
       PAYTR_MODE: "live",

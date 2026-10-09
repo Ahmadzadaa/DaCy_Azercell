@@ -1,5 +1,5 @@
 -- Row Level Security for the AI Mentor tables. Apply after 001_enable_rls.sql
--- (it defines the app_* helper functions) and after the ai_mentor migration.
+-- (it defines the app_* helper functions) and after schema creation.
 --
 -- Conversations are private to the participant: not even the organisation's
 -- staff can read them. Usage and security rows carry no content and are

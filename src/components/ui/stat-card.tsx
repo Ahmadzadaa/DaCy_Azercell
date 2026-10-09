@@ -69,11 +69,7 @@ export function StatCard({
       >
 
         <div className="p-5">
-          {/* The title used to be right-aligned and pushed to the far edge by
-              `justify-between`. On a narrow card a two-word label wrapped and
-              then sat flush against the border with no breathing room, so it
-              reads from the left next to the icon instead. `min-w-0` lets it
-              wrap inside the row rather than forcing the row wider. */}
+          {/* Keep the title beside the icon; min-w-0 allows wrapping on narrow cards. */}
           <div className="flex items-start gap-3">
             <IconTile icon={Icon} tone={accentTone[accent]} />
             <Label className="min-w-0 flex-1 pt-0.5 text-left leading-snug text-pretty break-words">

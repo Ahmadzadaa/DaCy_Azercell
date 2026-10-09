@@ -1,5 +1,5 @@
 /**
- * Turkish and English versions of the "TexnoStart" scenario in
+ * Turkish and English versions of the "DaCy Startup" scenario in
  * prisma/seed-simulation.ts. Same shape and order as its ROUNDS (AZ source).
  */
 
@@ -12,9 +12,9 @@ export interface ScenarioTranslation {
   }[];
 }
 
-export const TEXNOSTART_TR: ScenarioTranslation = {
+export const STARTUP_GROWTH_TR: ScenarioTranslation = {
   description:
-    "TexnoStart — B2B SaaS girişimini 8 turda sıfırdan bölgesel bir oyuncuya dönüştür. Her kararın sermayeye, müşteri memnuniyetine ve itibara etkisi var.",
+    "DaCy Startup — B2B SaaS girişimini 8 turda sıfırdan bölgesel bir oyuncuya dönüştür. Her kararın sermayeye, müşteri memnuniyetine ve itibara etkisi var.",
   rounds: [
     {
       title: "Fikir doğrulama",
@@ -219,9 +219,9 @@ export const TEXNOSTART_TR: ScenarioTranslation = {
   ],
 };
 
-export const TEXNOSTART_EN: ScenarioTranslation = {
+export const STARTUP_GROWTH_EN: ScenarioTranslation = {
   description:
-    "TexnoStart — grow a B2B SaaS startup from zero to a regional player in 8 rounds. Every decision affects your capital, customer satisfaction and reputation.",
+    "DaCy Startup — grow a B2B SaaS startup from zero to a regional player in 8 rounds. Every decision affects your capital, customer satisfaction and reputation.",
   rounds: [
     {
       title: "Idea validation",

@@ -1,9 +1,9 @@
 import { VoiceNotEnabledError } from "@/ai/voice/stt";
 
 /**
- * Text-to-speech, planned for the voice phase (e.g. Azure Speech). Visemes
+ * Text-to-speech interface (e.g. Azure Speech). Visemes
  * drive a browser-side avatar's lip sync, so avatar cost does not grow with
- * the number of users. Interface only in this phase.
+ * the number of users. Voice is disabled until a provider is configured.
  */
 
 export interface TtsRequest {

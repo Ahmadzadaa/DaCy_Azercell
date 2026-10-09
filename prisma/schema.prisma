@@ -25,8 +25,7 @@ model Tenant {
   /// afterwards, so e.g. a university can still run a hackathon.
   tenantType String @default("FULL") @map("tenant_type")
 
-  /// Module entitlements, set by the platform owner. Default to true so
-  /// organisations created before this existed keep everything they had.
+  /// Module entitlements, enabled by default and configurable by the platform owner.
   teachersEnabled    Boolean  @default(true) @map("teachers_enabled")
   hackathonEnabled   Boolean  @default(true) @map("hackathon_enabled")
   simulationsEnabled Boolean  @default(true) @map("simulations_enabled")
@@ -94,7 +93,7 @@ model User {
   coinBalance  Int     @default(0) @map("coin_balance")
 
   // Academic profile, collected at registration for university participants.
-  // Nullable because accounts created before this existed have none.
+  // Optional for accounts that do not need an academic profile.
   university   String?
   faculty      String?
   specialty    String?
@@ -802,8 +801,8 @@ model Certificate {
   title         String
   locale        String  @default("az")
   /// The wording and the organisation name printed on the document, kept so
-  /// the on-screen likeness shows exactly what the PDF says. Null on rows
-  /// issued before these were kept: the template's default wording applies.
+  /// the on-screen likeness shows exactly what the PDF says. When null,
+  /// the template's default wording applies.
   body          String?
   issuerName    String? @map("issuer_name")
 
@@ -1309,7 +1308,7 @@ model UserConsent {
   /// PRIVACY_NOTICE (required) | DATA_USE | OPPORTUNITIES | PSYCH_RESULTS_SHARE
   type      String
   granted   Boolean
-  /// What the user saw, e.g. "kvkk-tr@2026-09" or "2026-09".
+  /// Acknowledged wording, e.g. "privacy-tr@2026-10-09" or "2026-10-09".
   version   String
   ip        String?
   createdAt DateTime @default(now()) @map("created_at")

@@ -14,9 +14,7 @@ export async function generateMetadata({
 }
 
 /**
- * Skeleton only. These headings are the ones a KVKK/GDPR review expects to
- * find; every body is a placeholder until counsel supplies the wording — see
- * docs/landing-content-brief.md.
+ * Terms sections displayed with an explicit draft notice pending review.
  */
 const SECTION_KEYS = [
   "acceptance",

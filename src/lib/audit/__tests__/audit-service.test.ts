@@ -24,7 +24,7 @@ describe("audit-service", () => {
 });
 
 describe("audit actions", () => {
-  it("defines required Phase 3 actions", () => {
+  it("defines required audit actions", () => {
     expect(AUDIT_ACTIONS.LOGIN_SUCCESS).toBe("LOGIN_SUCCESS");
     expect(AUDIT_ACTIONS.LOGOUT).toBe("LOGOUT");
     expect(AUDIT_ACTIONS.REPORT_EXPORTED).toBe("REPORT_EXPORTED");

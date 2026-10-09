@@ -12,9 +12,9 @@ if [ "${DB_SCHEMA_SYNC:-}" = "push" ]; then
 elif [ "${RUN_MIGRATIONS:-false}" = "true" ]; then
   echo "[entrypoint] Running Prisma migrations..."
   $PRISMA migrate deploy --schema=prisma/schema.postgres.prisma
-  if [ -f "prisma/migrations/rls/001_enable_rls.sql" ] && [ "${APPLY_RLS:-false}" = "true" ]; then
+  if [ -f "prisma/rls/001_enable_rls.sql" ] && [ "${APPLY_RLS:-false}" = "true" ]; then
     echo "[entrypoint] Applying RLS policies..."
-    psql "${DATABASE_URL}" -f prisma/migrations/rls/001_enable_rls.sql
+    psql "${DATABASE_URL}" -f prisma/rls/001_enable_rls.sql
   fi
 fi
 

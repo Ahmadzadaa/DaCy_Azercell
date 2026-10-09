@@ -86,7 +86,7 @@
     "showPassword": "Show password",
     "hidePassword": "Hide password",
     "trustEncryption": "256-bit encryption",
-    "trustCompliance": "KVKK/GDPR compliant",
+    "trustCompliance": "Privacy controls",
     "trustEnterprise": "Enterprise SaaS",
     "allRightsReserved": "All rights reserved",
     "forgotPassword": "Forgot password?",
@@ -1773,7 +1773,6 @@
     "notListed": "Not in the list",
     "otherField": "Other",
     "consentHeading": "Consents",
-    "draftTranslation": "draft translation",
     "opportunitiesQuestion": "In the future, would you like us to share suitable opportunities to take part in organizations' innovation and problem-solving projects?",
     "opportunitiesYes": "Yes, you may share them",
     "opportunitiesNo": "No, thank you",
@@ -1800,7 +1799,7 @@
     "showPassword": "Show password",
     "hidePassword": "Hide password",
     "readNotice": "Read",
-    "secureNote": "Your data is protected under the privacy notice."
+    "secureNote": "You choose how your information is used."
   },
   "programSchedule": {
     "caption": "6-week program calendar",
@@ -2365,62 +2364,37 @@
     },
     "privacy": {
       "title": "Privacy policy",
-      "updated": "Last updated: 6 September 2026",
-      "draftNotice": "DRAFT — this text has not been through legal review and is not binding.",
+      "updated": "Last updated: 9 October 2026",
       "sections": {
         "controller": {
-          "heading": "Data controller",
-          "body": "The organisation using the platform is the controller for its participants' data and BizSim is the processor. For data sent to us directly through the marketing site, BizSim is the controller."
+          "heading": "The DaCy platform",
+          "body": "This page explains how the DaCy platform uses information and the choices available to participants."
         },
         "dataCollected": {
           "heading": "Data we collect",
-          "body": "Account details (name, email, phone, role), academic profile (university, faculty, specialty, year), usage events (lesson completions, exam attempts, sign-in records) and uploaded files (project PDFs, avatars).\n\nThrough the demo form: name, company, email, phone, estimated participant count and message."
+          "body": "Account and contact details, education profiles, program activities and assessment results, files you submit and support requests."
         },
         "purposes": {
-          "heading": "Purposes",
-          "body": "Delivering the service, tracking participant progress, issuing and verifying certificates, investigating security incidents, billing and support."
-        },
-        "legalBasis": {
-          "heading": "Legal basis",
-          "body": "Performance of a contract (delivering the service), legitimate interest (security and abuse prevention), legal obligation (accounting) and consent (the marketing form)."
+          "heading": "How data is used",
+          "body": "Registration and sign-in, training and simulations, showing results, preparing reports and certificates, and handling payments and support."
         },
         "sharing": {
-          "heading": "Sharing with third parties",
-          "body": "We do not sell data. It is shared only with the processors the service needs: cloud infrastructure, email delivery and the payment provider. A data processing agreement is in place with each."
-        },
-        "transfers": {
-          "heading": "International transfers",
-          "body": "Processing takes place primarily on servers in the European region. Where a transfer outside that region occurs, legal mechanisms such as standard contractual clauses apply."
-        },
-        "retention": {
-          "heading": "Retention",
-          "body": "Account data is kept for the life of the subscription and for as long as the law requires afterwards. Issued certificates are kept longer so they remain verifiable. Demo form submissions are deleted once the sales process ends."
-        },
-        "security": {
-          "heading": "Security measures",
-          "body": "Encrypted connections, hashed passwords, mandatory two-factor authentication for admin roles, role-based authorisation, organisation isolation enforced at the database level, and an audit log."
-        },
-        "rights": {
-          "heading": "Your rights",
-          "body": "You have the right to access, rectify, erase, restrict, port and object to the processing of your data. See the contact section below to make a request.\n\nNote: for data held by an organisation you participate in, address the request to that organisation first."
+          "heading": "Access and your choices",
+          "body": "Authorised organisation staff can view information appropriate to their roles. Psychological assessment results are shown to the university with separate consent. Use of submitted work to improve the platform and opportunity notifications are separate choices. Enabled AI, payment and file storage services may send necessary information to their providers to fulfil a request."
         },
         "cookies": {
           "heading": "Cookies",
-          "body": "Only cookies the service needs are used: session, language preference and interface theme. No advertising or tracking cookies are set."
-        },
-        "changes": {
-          "heading": "Changes to this policy",
-          "body": "When this document is updated the date above changes. Significant changes are announced to organisation admins by email."
+          "body": "Essential cookies support your sign-in session and language preference."
         },
         "contact": {
           "heading": "Contact",
-          "body": "For privacy questions and data requests, use the form on the contact page and mention “Privacy” in your message."
+          "body": "Use the contact form to request access to, correction of or deletion of your information. If you participate in an organisation's program, you can also contact its administrator."
         }
       }
     },
     "terms": {
       "title": "Terms of service",
-      "updated": "Last updated: 6 September 2026",
+      "updated": "Last updated: 9 October 2026",
       "draftNotice": "DRAFT — this text has not been through legal review and is not binding.",
       "sections": {
         "acceptance": {

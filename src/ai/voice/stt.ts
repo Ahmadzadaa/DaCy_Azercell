@@ -1,9 +1,9 @@
 /**
- * Speech-to-text, planned for the voice phase: microphone audio becomes text,
+ * Speech-to-text interface: microphone audio becomes text,
  * then goes through the same topic check and limits as typed messages.
  * Recordings are never stored: the provider converts, the buffer is dropped.
  *
- * Interface only in this phase; no provider is wired up.
+ * Voice is disabled until a provider is configured.
  */
 
 export interface SttRequest {
@@ -25,7 +25,7 @@ export interface SttProvider {
 
 export class VoiceNotEnabledError extends Error {
   constructor() {
-    super("Voice is not enabled in this phase");
+    super("Voice is not enabled");
   }
 }
 

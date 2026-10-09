@@ -1,91 +1,61 @@
 /**
- * Legal notices shown at student registration, from docs/spec/KVKK.docx and
- * docs/spec/GDPR.docx. They live here (not in messages/*.json) because the
- * text and its version must change together: bumping `version` makes every
- * student re-consent.
- *
- * Which notices a student sees depends on the page language:
- *   tr -> KVKK (TR), az -> KVKK (AZ), en -> KVKK (EN) + GDPR.
+ * Registration privacy notices. Text and version are kept together so a
+ * wording update requires a new acknowledgement.
  */
-
 export type NoticeLocale = "tr" | "en" | "az";
 
 export type Notice = {
-  code: "kvkk" | "gdpr";
+  code: "privacy";
   version: string;
   title: string;
   paragraphs: string[];
-  /** Checkbox 1: "I have read the notice". Required. */
+  /** Required acknowledgement of the privacy notice. */
   acknowledge: string;
-  /** Checkbox 2: use of ideas and results by XMind Studio. Optional. */
+  /** Optional use of submitted work to improve the platform. */
   dataUse: string;
-  /** Translation not yet reviewed by legal. */
-  draft?: boolean;
 };
 
-const KVKK_VERSION = "2026-09";
-const GDPR_VERSION = "2026-09";
-
-/** Current version per notice; a stored notice set with an older one is stale. */
 export const NOTICE_VERSIONS: Record<Notice["code"], string> = {
-  kvkk: KVKK_VERSION,
-  gdpr: GDPR_VERSION,
+  privacy: "2026-10-09",
 };
 
-const KVKK: Record<NoticeLocale, Notice> = {
+const PRIVACY: Record<NoticeLocale, Notice> = {
   tr: {
-    code: "kvkk",
-    version: KVKK_VERSION,
-    title: "KVKK Aydınlatma Metni",
+    code: "privacy",
+    version: NOTICE_VERSIONS.privacy,
+    title: "Gizlilik Bildirimi",
     paragraphs: [
-      "Platforma kayıt ve kullanım sürecinde paylaştığım ad-soyad, iletişim, eğitim, program katılımı, değerlendirme, performans ve platform kullanım bilgilerimin; eğitim ve simülasyon süreçlerinin yürütülmesi, yetkinlik değerlendirmelerinin gerçekleştirilmesi, gelişim analizlerinin yapılması, raporlama ve sertifikalandırma süreçlerinin yürütülmesi amacıyla işlenebileceği konusunda bilgilendirildim.",
-      "Platform kapsamında oluşturduğum fikir, proje, cevap, çalışma ve değerlendirme sonuçlarının; eğitim, araştırma, analiz, hizmet geliştirme ve raporlama amaçlarıyla XMind Studio ve XMind Studio Grup Şirketleri tarafından kullanılabileceği konusunda bilgilendirildim.",
-      "Kişisel verilerimin KVKK kapsamında korunacağını ve KVKK uyarınca sahip olduğum haklar konusunda bilgilendirildiğimi kabul ederim.",
+      "DaCy platformunda ad, iletişim ve eğitim bilgileri, program etkinlikleri ve sonuçlar; kayıt, eğitim, değerlendirme, raporlama ve sertifikalandırma için işlenir.",
+      "Çalışmalarınızın platformu geliştirmek için kullanılmasına, fırsat bildirimlerine ve psikolojik değerlendirme sonuçlarınızın üniversitenizle paylaşılmasına ayrı ayrı izin verebilirsiniz.",
     ],
-    acknowledge: "KVKK Bilgilendirme Metni'ni okudum ve kabul ediyorum.",
+    acknowledge: "Gizlilik bildirimini okudum ve anladım.",
     dataUse:
-      "Platform kapsamında oluşturduğum fikir, cevap, çalışma, performans ve değerlendirme sonuçlarının XMind Studio ve XMind Studio Grup Şirketleri tarafından belirtilen amaçlarla kullanılmasına izin veriyorum.",
+      "Fikirlerimin ve çalışma sonuçlarımın DaCy platformundaki eğitimleri ve hizmeti geliştirmek için kullanılmasına izin veriyorum.",
   },
   en: {
-    code: "kvkk",
-    version: KVKK_VERSION,
-    title: "KVKK Privacy Notice",
+    code: "privacy",
+    version: NOTICE_VERSIONS.privacy,
+    title: "Privacy Notice",
     paragraphs: [
-      "I have been informed that the personal data I provide during the registration and use of the Platform, including my name and surname, contact information, education information, program participation, assessment, performance and Platform usage information, may be processed for the purposes of conducting educational and simulation processes, carrying out competency assessments, conducting development analyses, preparing reports and issuing certificates.",
-      "I have been informed that the ideas, projects, responses, work and assessment results I create through the Platform may be used by XMind Studio and XMind Studio Group Companies for educational, research, analytical, service development and reporting purposes.",
-      "I acknowledge that my personal data will be protected in accordance with the KVKK (Law No. 6698 on the Protection of Personal Data) and that I have been informed of my rights under the KVKK.",
+      "The DaCy platform processes your name, contact and education details, program activities and results for registration, training, assessment, reporting and certification.",
+      "You can separately choose whether your work may be used to improve the platform, whether to receive opportunity notifications, and whether your psychological assessment results may be shared with your university.",
     ],
-    acknowledge: "I have read and understood the KVKK Information Notice.",
+    acknowledge: "I have read and understood the privacy notice.",
     dataUse:
-      "I consent to the use of the ideas, responses, work, performance data and assessment results I create through the Platform by XMind Studio and XMind Studio Group Companies for the purposes stated above.",
+      "I consent to the use of my ideas and submitted work to improve training and services on the DaCy platform.",
   },
   az: {
-    code: "kvkk",
-    version: KVKK_VERSION,
-    title: "Şəxsi Məlumatların Qorunması (KVKK) üzrə Məlumatlandırma Mətni",
+    code: "privacy",
+    version: NOTICE_VERSIONS.privacy,
+    title: "Məxfilik Bildirişi",
     paragraphs: [
-      "Platformada qeydiyyat və istifadə zamanı paylaşdığım ad-soyad, əlaqə, təhsil, proqram iştirakı, qiymətləndirmə, performans və platformadan istifadə məlumatlarımın təlim və simulyasiya proseslərinin həyata keçirilməsi, səriştə qiymətləndirmələrinin aparılması, inkişaf təhlillərinin edilməsi, hesabat və sertifikatlaşdırma proseslərinin icrası məqsədilə emal oluna biləcəyi barədə məlumatlandırıldım.",
-      "Platforma çərçivəsində yaratdığım ideya, layihə, cavab, iş və qiymətləndirmə nəticələrinin təlim, tədqiqat, təhlil, xidmətin inkişafı və hesabat məqsədilə XMind Studio və XMind Studio Qrup Şirkətləri tərəfindən istifadə oluna biləcəyi barədə məlumatlandırıldım.",
-      "Şəxsi məlumatlarımın KVKK (6698 saylı Şəxsi Məlumatların Qorunması haqqında Qanun) çərçivəsində qorunacağını və bu qanuna əsasən malik olduğum hüquqlar barədə məlumatlandırıldığımı qəbul edirəm.",
+      "DaCy platformasında ad, əlaqə və təhsil məlumatları, proqramdakı fəaliyyət və nəticələr qeydiyyat, təlim, qiymətləndirmə, hesabat və sertifikatlaşdırma üçün emal edilir.",
+      "İşlərinizin platformanın təkmilləşdirilməsi üçün istifadəsinə, fürsətlər barədə bildirişlərə və psixoloji qiymətləndirmə nəticələrinizin universitetinizlə paylaşılmasına ayrı-ayrılıqda razılıq verə bilərsiniz.",
     ],
-    acknowledge: "KVKK Məlumatlandırma Mətnini oxudum və qəbul edirəm.",
+    acknowledge: "Məxfilik bildirişini oxudum və başa düşdüm.",
     dataUse:
-      "Platforma çərçivəsində yaratdığım ideya, cavab, iş, performans və qiymətləndirmə nəticələrinin XMind Studio və XMind Studio Qrup Şirkətləri tərəfindən göstərilən məqsədlərlə istifadəsinə icazə verirəm.",
-    draft: true,
+      "İdeya və tapşırıq nəticələrimin DaCy platformasında təlimlərin və xidmətin təkmilləşdirilməsi üçün istifadəsinə razıyam.",
   },
-};
-
-const GDPR: Notice = {
-  code: "gdpr",
-  version: GDPR_VERSION,
-  title: "GDPR Privacy Notice",
-  paragraphs: [
-    "Through my registration and use of the platform, identification, contact, education, program participation, assessment, performance and platform usage data may be processed for the purposes of delivering educational and simulation activities, conducting competency assessments, analyzing development and performance, generating reports and issuing certificates.",
-    "The ideas, projects, responses, work and assessment results I create through the platform may be used by XMind Studio and XMind Studio Group Companies for educational, research, analytical, service development and reporting purposes.",
-    "My personal data will be processed in accordance with the applicable provisions of the General Data Protection Regulation (GDPR). I have been informed of my rights regarding my personal data.",
-  ],
-  acknowledge: "I have read and understood the GDPR Privacy Notice.",
-  dataUse: KVKK.en.dataUse,
 };
 
 export function toNoticeLocale(locale: string): NoticeLocale {
@@ -93,30 +63,18 @@ export function toNoticeLocale(locale: string): NoticeLocale {
 }
 
 export function noticesFor(locale: string): Notice[] {
-  const l = toNoticeLocale(locale);
-  return l === "en" ? [KVKK.en, GDPR] : [KVKK[l]];
+  return [PRIVACY[toNoticeLocale(locale)]];
 }
 
-/**
- * The exact notice set a consent refers to, e.g. "kvkk-en@2026-09+gdpr@2026-09".
- * Stored as the consent version so the record shows what the student saw.
- */
+/** The localized text acknowledged by a participant. */
 export function noticeSetVersion(locale: string): string {
   const l = toNoticeLocale(locale);
-  return noticesFor(l)
-    .map((n) => (n.code === "kvkk" ? `kvkk-${l}@${n.version}` : `${n.code}@${n.version}`))
-    .join("+");
+  return `privacy-${l}@${NOTICE_VERSIONS.privacy}`;
 }
 
-/** True when every notice in a stored set is still at its current version. */
+/** Only a current notice in a supported language satisfies acknowledgement. */
 export function isNoticeSetCurrent(stored: string): boolean {
-  const parts = stored.split("+").filter(Boolean);
-  return (
-    parts.length > 0 &&
-    parts.every((part) => {
-      const [name, version] = part.split("@");
-      const code = name.split("-")[0] as Notice["code"];
-      return code in NOTICE_VERSIONS && NOTICE_VERSIONS[code] === version;
-    })
+  return (["tr", "en", "az"] as const).some(
+    (locale) => stored === noticeSetVersion(locale)
   );
 }

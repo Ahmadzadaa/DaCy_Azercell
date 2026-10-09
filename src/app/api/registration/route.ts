@@ -9,11 +9,8 @@ import { sendEmail } from "@/lib/email/email-service";
 import { welcomeEmail } from "@/lib/email/templates";
 
 /**
- * Every registration failure is a domain error that already knows its status
- * and its machine-readable code, so the shared mapper produces exactly the
- * responses this function used to assemble by hand — except it also carries
- * the code across, which is what the browser translates. The bad-token case
- * is the one failure with no class of its own.
+ * Domain errors provide an HTTP status and a translatable code. Invalid
+ * application tokens are mapped explicitly because they have no error class.
  */
 function mapRegistrationError(error: unknown): Response {
   if (error instanceof Error && error.message === "Invalid application token") {

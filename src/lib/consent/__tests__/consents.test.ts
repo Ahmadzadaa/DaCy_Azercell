@@ -19,18 +19,20 @@ const at = (iso: string) => new Date(iso);
 const answers = { privacyNotice: true, dataUse: false, opportunities: true, psychResultsShare: false };
 
 describe("notices", () => {
-  it("shows KVKK in tr/az and KVKK + GDPR in en", () => {
-    expect(noticesFor("tr").map((n) => n.code)).toEqual(["kvkk"]);
-    expect(noticesFor("az").map((n) => n.code)).toEqual(["kvkk"]);
-    expect(noticesFor("en").map((n) => n.code)).toEqual(["kvkk", "gdpr"]);
-    expect(noticesFor("az")[0].draft).toBe(true);
+  it.each(["tr", "az", "en"])("shows one localized privacy notice in %s", (locale) => {
+    const notices = noticesFor(locale);
+    expect(notices.map((n) => n.code)).toEqual(["privacy"]);
+    expect(notices[0].paragraphs).toHaveLength(2);
+    expect(notices[0].dataUse).toContain("DaCy");
   });
 
   it("records which notice set was shown and detects stale versions", () => {
-    expect(noticeSetVersion("tr")).toBe("kvkk-tr@2026-09");
-    expect(noticeSetVersion("en")).toBe("kvkk-en@2026-09+gdpr@2026-09");
+    expect(noticeSetVersion("tr")).toBe("privacy-tr@2026-10-09");
+    expect(noticeSetVersion("en")).toBe("privacy-en@2026-10-09");
     expect(isNoticeSetCurrent(noticeSetVersion("en"))).toBe(true);
-    expect(isNoticeSetCurrent("kvkk-tr@2020-01")).toBe(false);
+    expect(isNoticeSetCurrent("privacy-tr@outdated")).toBe(false);
+    expect(isNoticeSetCurrent("privacy-unknown@2026-10-09")).toBe(false);
+    expect(isNoticeSetCurrent(`${noticeSetVersion("en")}+unknown@2026-10-09`)).toBe(false);
     expect(isNoticeSetCurrent("")).toBe(false);
   });
 });
@@ -42,7 +44,7 @@ describe("consents", () => {
     await recordConsents("usr_1", answers, { locale: "en", ip: "1.2.3.4" });
 
     const { data } = vi.mocked(prisma.userConsent.createMany).mock.calls[0][0] as { data: object[] };
-    const notices = "kvkk-en@2026-09+gdpr@2026-09";
+    const notices = "privacy-en@2026-10-09";
     expect(data).toEqual([
       { userId: "usr_1", type: "PRIVACY_NOTICE", granted: true, version: notices, ip: "1.2.3.4" },
       { userId: "usr_1", type: "DATA_USE", granted: false, version: notices, ip: "1.2.3.4" },
@@ -63,9 +65,9 @@ describe("consents", () => {
   it("uses the latest answer per type", async () => {
     // findMany is ordered newest first.
     vi.mocked(prisma.userConsent.findMany).mockResolvedValue([
-      { type: "PSYCH_RESULTS_SHARE", granted: false, version: "2026-09", createdAt: at("2026-10-02") },
-      { type: "PRIVACY_NOTICE", granted: true, version: "kvkk-tr@2026-09", createdAt: at("2026-10-01") },
-      { type: "PSYCH_RESULTS_SHARE", granted: true, version: "2026-09", createdAt: at("2026-10-01") },
+      { type: "PSYCH_RESULTS_SHARE", granted: false, version: UI_CONSENT_VERSION, createdAt: at("2026-10-09T12:00:00Z") },
+      { type: "PRIVACY_NOTICE", granted: true, version: noticeSetVersion("tr"), createdAt: at("2026-10-09T10:00:00Z") },
+      { type: "PSYCH_RESULTS_SHARE", granted: true, version: UI_CONSENT_VERSION, createdAt: at("2026-10-09T10:00:00Z") },
     ] as never);
 
     const current = await getCurrentConsents("usr_1");
@@ -80,7 +82,7 @@ describe("consents", () => {
     const base = { DATA_USE: null, OPPORTUNITIES: null, PSYCH_RESULTS_SHARE: null };
     expect(needsConsent({ ...base, PRIVACY_NOTICE: null })).toBe(true);
     expect(
-      needsConsent({ ...base, PRIVACY_NOTICE: { granted: true, version: "kvkk-tr@2020-01", at: at("2020-01-01") } })
+      needsConsent({ ...base, PRIVACY_NOTICE: { granted: true, version: "privacy-tr@outdated", at: at("2026-10-09") } })
     ).toBe(true);
   });
 

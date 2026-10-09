@@ -21,10 +21,10 @@ const LIVE = {
   PAYTR_LIVE_MERCHANT_SALT: "live-salt",
 } as unknown as NodeJS.ProcessEnv;
 
-const LEGACY = {
-  PAYTR_MERCHANT_ID: "legacy-id",
-  PAYTR_MERCHANT_KEY: "legacy-key",
-  PAYTR_MERCHANT_SALT: "legacy-salt",
+const UNPREFIXED = {
+  PAYTR_MERCHANT_ID: "unprefixed-id",
+  PAYTR_MERCHANT_KEY: "unprefixed-key",
+  PAYTR_MERCHANT_SALT: "unprefixed-salt",
 } as unknown as NodeJS.ProcessEnv;
 
 describe("PayTR mode selection", () => {
@@ -54,15 +54,15 @@ describe("PayTR credential resolution", () => {
     expect(credentials.testMode).toBe(1);
   });
 
-  it("still accepts the pre-split variables in sandbox mode", () => {
-    const credentials = getPaytrCredentials({ ...LEGACY } as unknown as NodeJS.ProcessEnv);
+  it("accepts the unprefixed variables in sandbox mode", () => {
+    const credentials = getPaytrCredentials({ ...UNPREFIXED } as unknown as NodeJS.ProcessEnv);
 
-    expect(credentials.merchantKey).toBe("legacy-key");
+    expect(credentials.merchantKey).toBe("unprefixed-key");
   });
 
-  it("prefers the sandbox-prefixed variables over the legacy ones", () => {
+  it("prefers the sandbox-prefixed variables over the unprefixed ones", () => {
     const credentials = getPaytrCredentials({
-      ...LEGACY,
+      ...UNPREFIXED,
       ...SANDBOX,
     } as unknown as NodeJS.ProcessEnv);
 
@@ -85,8 +85,8 @@ describe("PayTR credential resolution", () => {
    * silently satisfying a live deployment, so every payment is a test and no
    * money is ever collected.
    */
-  it("refuses to fall back to the legacy variables in live mode", () => {
-    const env = { PAYTR_MODE: "live", ...LEGACY, ...SANDBOX } as unknown as NodeJS.ProcessEnv;
+  it("refuses to fall back to the unprefixed variables in live mode", () => {
+    const env = { PAYTR_MODE: "live", ...UNPREFIXED, ...SANDBOX } as unknown as NodeJS.ProcessEnv;
 
     expect(isPaytrConfigured(env)).toBe(false);
     expect(missingPaytrVars(env)).toEqual([
@@ -110,11 +110,11 @@ describe("PayTR credential resolution", () => {
   });
 
   it("never leaks a credential value in the error message", () => {
-    const env = { PAYTR_MODE: "live", ...LEGACY } as unknown as NodeJS.ProcessEnv;
+    const env = { PAYTR_MODE: "live", ...UNPREFIXED } as unknown as NodeJS.ProcessEnv;
 
     expect(() => getPaytrCredentials(env)).toThrow(
       expect.objectContaining({
-        message: expect.not.stringContaining("legacy-key"),
+        message: expect.not.stringContaining("unprefixed-key"),
       })
     );
   });

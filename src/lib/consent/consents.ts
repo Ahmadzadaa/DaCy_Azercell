@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { isNoticeSetCurrent, noticeSetVersion } from "@/lib/consent/notices";
 
 /**
- * Student consents (KVKK/GDPR). The log is append-only: every answer is a new
+ * Student privacy choices. The log is append-only: every answer is a new
  * row with the text version and time, and the latest row per type is current.
  */
 
@@ -20,12 +20,12 @@ export type ConsentType = (typeof CONSENT_TYPES)[number];
  * (their text lives in messages/*.json). PRIVACY_NOTICE and DATA_USE are
  * versioned by the notice set instead, see notices.ts.
  */
-export const UI_CONSENT_VERSION = "2026-09";
+export const UI_CONSENT_VERSION = "2026-10-09";
 
 export type ConsentAnswers = {
-  /** "I have read the KVKK/GDPR notice". Required. */
+  /** "I have read the privacy notice". Required. */
   privacyNotice: boolean;
-  /** Use of ideas and results by XMind Studio (KVKK explicit consent). Optional. */
+  /** Use of submitted work to improve the DaCy platform. Optional. */
   dataUse: boolean;
   /** "Share opportunities with me". Optional. */
   opportunities: boolean;
@@ -39,7 +39,7 @@ export class ConsentRequiredError extends Error {
   readonly statusCode = 400;
   readonly code = "PRIVACY_CONSENT_REQUIRED";
   constructor() {
-    super("KVKK/GDPR consent is required");
+    super("Privacy notice acknowledgement is required");
     this.name = "ConsentRequiredError";
   }
 }

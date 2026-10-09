@@ -282,8 +282,7 @@ export function CertificatesPageClient({ locale, userName, tenantName, programs,
   );
 
   // The preview always renders for a real name: the picked person, or in bulk
-  // mode the one being looked at (this used to send the empty single-mode name
-  // and fail in bulk mode).
+  // mode the person currently being previewed.
   const renderPreview = useCallback(async () => {
     if (!previewName || !body.trim()) return;
     setBusy(true);

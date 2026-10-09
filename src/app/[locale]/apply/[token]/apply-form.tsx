@@ -261,7 +261,6 @@ export function ApplyForm({
                         <ShieldCheck className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                         <span className="min-w-0 flex-1 text-[15px] font-medium text-foreground">
                           {notice.title}
-                          {notice.draft && <span className="ml-2 text-xs font-normal text-muted-foreground">({t("draftTranslation")})</span>}
                         </span>
                         <span className="text-[13px] text-muted-foreground">{t("readNotice")}</span>
                         <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-180" aria-hidden="true" />

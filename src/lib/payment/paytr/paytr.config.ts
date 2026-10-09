@@ -32,8 +32,8 @@ const MODE_VARS: Record<PaytrMode, { id: string; key: string; salt: string }> = 
   },
 };
 
-/** Pre-split variable names, still honoured in sandbox mode only. */
-const LEGACY_VARS = {
+/** Unprefixed variable names, supported in sandbox mode only. */
+const UNPREFIXED_VARS = {
   id: "PAYTR_MERCHANT_ID",
   key: "PAYTR_MERCHANT_KEY",
   salt: "PAYTR_MERCHANT_SALT",
@@ -58,8 +58,8 @@ export function isLiveMode(env: NodeJS.ProcessEnv = process.env): boolean {
 }
 
 /**
- * Live mode reads only `PAYTR_LIVE_*`. The legacy unprefixed triple is
- * accepted in sandbox mode for backwards compatibility, but never in live:
+ * Live mode reads only `PAYTR_LIVE_*`. The unprefixed triple is
+ * accepted in sandbox mode, but never in live:
  * nothing about a variable named `PAYTR_MERCHANT_KEY` says whether it holds a
  * sandbox or a production key, and guessing is how test keys reach production.
  */
@@ -68,12 +68,12 @@ export function missingPaytrVars(
   mode: PaytrMode = getPaytrMode(env)
 ): string[] {
   const vars = MODE_VARS[mode];
-  const allowLegacy = mode === "sandbox";
+  const allowUnprefixed = mode === "sandbox";
 
   return (["id", "key", "salt"] as const)
     .filter((field) => {
       if (env[vars[field]]) return false;
-      if (allowLegacy && env[LEGACY_VARS[field]]) return false;
+      if (allowUnprefixed && env[UNPREFIXED_VARS[field]]) return false;
       return true;
     })
     .map((field) => vars[field]);
@@ -112,9 +112,9 @@ export function getPaytrCredentials(
   }
 
   const vars = MODE_VARS[mode];
-  const allowLegacy = mode === "sandbox";
+  const allowUnprefixed = mode === "sandbox";
   const read = (field: "id" | "key" | "salt"): string =>
-    env[vars[field]] ?? (allowLegacy ? env[LEGACY_VARS[field]] : undefined) ?? "";
+    env[vars[field]] ?? (allowUnprefixed ? env[UNPREFIXED_VARS[field]] : undefined) ?? "";
 
   return {
     mode,

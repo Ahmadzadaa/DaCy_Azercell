@@ -30,7 +30,7 @@ export function inMemoryRateLimitAllowed(env: NodeJS.ProcessEnv = process.env): 
 
 // PayTR is an optional integration, but a half-configured provider would only
 // fail when a customer reaches checkout — so the three credentials must be set
-// together or not at all. This covers the pre-split (sandbox-only) triple;
+// together or not at all. This covers the unprefixed (sandbox-only) triple;
 // mode-specific credentials are checked in `checkPaytr` below.
 const PAIRED_PROVIDER_VARS: Record<string, string[]> = {
   PAYTR_MERCHANT_ID: ["PAYTR_MERCHANT_KEY", "PAYTR_MERCHANT_SALT"],

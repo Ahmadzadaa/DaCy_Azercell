@@ -23,14 +23,9 @@ export interface StoredPdf {
 }
 
 /**
- * Accepts both key generations.
- *
- * Rows written before object storage hold a path relative to the certificates
- * directory (`{tenantId}/{certId}.pdf`) — and, if they were written on
- * Windows, with backslashes. Those rows must keep opening until
- * `scripts/migrate-certificates-to-s3.ts` has rewritten them, so a value
- * without the current prefix is interpreted as the legacy form rather than
- * rejected.
+ * Accepts full storage keys and paths relative to the certificates directory
+ * (`{tenantId}/{certId}.pdf`). Normalizes Windows separators and adds the
+ * certificates prefix when absent.
  */
 export function resolveCertificateKey(stored: string): string {
   const normalized = stored.replaceAll("\\", "/");

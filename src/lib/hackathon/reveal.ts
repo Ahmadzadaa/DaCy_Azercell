@@ -1,7 +1,7 @@
 /**
  * Results-reveal gate for hackathon rankings.
  *
- * - revealAt == null  → rankings are live (default, backward compatible)
+ * - revealAt == null  → rankings are live (default)
  * - revealAt in future → rankings hidden from participants until that moment
  * - revealAt in past   → rankings visible (announced)
  *

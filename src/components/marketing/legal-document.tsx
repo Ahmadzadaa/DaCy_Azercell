@@ -3,10 +3,7 @@ import { AlertTriangle } from "lucide-react";
 /**
  * Shared shell for the privacy policy and the terms of service.
  *
- * Both are skeletons: the headings are the ones a KVKK/GDPR review expects to
- * find, and each body is a placeholder until counsel supplies the wording. The
- * draft notice is deliberately loud — a legal page that looks finished but is
- * not is worse than an obviously empty one.
+ * Documents awaiting review may include an explicit draft notice.
  */
 export function LegalDocument({
   title,
@@ -16,7 +13,7 @@ export function LegalDocument({
 }: {
   title: string;
   updatedLabel: string;
-  draftNotice: string;
+  draftNotice?: string;
   sections: { id: string; heading: string; body: string }[];
 }) {
   return (
@@ -26,10 +23,12 @@ export function LegalDocument({
       </h1>
       <p className="mt-2 text-[13px] text-muted-foreground">{updatedLabel}</p>
 
-      <p className="mt-6 flex gap-3 rounded-2xl border border-warning/40 bg-warning/10 p-4 text-[13px] leading-[1.7] text-foreground">
-        <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-warning" aria-hidden="true" />
-        {draftNotice}
-      </p>
+      {draftNotice && (
+        <p className="mt-6 flex gap-3 rounded-2xl border border-warning/40 bg-warning/10 p-4 text-[13px] leading-[1.7] text-foreground">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-warning" aria-hidden="true" />
+          {draftNotice}
+        </p>
+      )}
 
       {/* A short index: these documents are long, and people arrive looking
           for one clause rather than to read them start to finish. */}

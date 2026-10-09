@@ -1,17 +1,8 @@
 /**
  * The shape of a simulation scenario while it is being authored.
  *
- * Deliberately in its own module with no `"use client"` directive. These
- * factories used to live in `scenario-editor.tsx`, and the server component at
- * `new/page.tsx` imported `emptyScenario()` from there to build the blank
- * draft. Next.js allows a server component to *render* a client component, but
- * not to *call* a function exported from a client module — so that page threw
- * on every request:
- *
- *   Attempted to call emptyScenario() from the server but emptyScenario is on
- *   the client.
- *
- * There is no React or browser API in here, so both sides can import it.
+ * These factories use no React or browser APIs. Keeping them outside client
+ * modules allows both server pages and the scenario editor to call them.
  */
 
 export interface ChoiceDraft {

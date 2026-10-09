@@ -176,7 +176,6 @@ export function SettingsPageClient({
         </TabsList>
 
         <TabsContent value="organization">
-          {/* The card used to repeat the tab's own name as its title. */}
           <FormSection title={t("organization")} description={td("organization.description")}>
             {/* Settings-style rows: icon, label, the value editable in place. */}
             <div className="divide-y divide-border/60 overflow-hidden rounded-[20px] bg-card shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.12)] ring-1 ring-border/60">
