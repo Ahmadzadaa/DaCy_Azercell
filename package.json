@@ -30,6 +30,7 @@
     "test:perf": "vitest run src/lib/__tests__/pagination.test.ts src/lib/cache/__tests__/cache-service.test.ts",
     "benchmark": "tsx scripts/benchmark.ts",
     "test:coverage": "vitest run --coverage",
+    "eval:mentor": "tsx scripts/eval-mentor.ts",
     "worker": "tsx scripts/queue-worker.ts",
     "worker:once": "tsx scripts/queue-worker.ts --once",
     "load:health": "k6 run scripts/load/health.js",
